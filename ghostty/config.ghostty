@@ -1,0 +1,16 @@
+background-opacity = 0.93
+background = #1f2030
+foreground = #c7c5c7
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 15
+font-feature = +calt
+
+mouse-hide-while-typing = true
+
+window-padding-balance = true
+
+# TODO: Configure starship for prompt
+# Starship for prompt: https://starship.rs/ 
+
+# TODO: Post-rice use dircolors to make sure ls stuff matches colorscheme in terminal

@@ -1,0 +1,164 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "spacing": 8,
+
+    "modules-left": [
+        "sway/workspaces",
+        "idle_inhibitor",
+        "pulseaudio",
+        "sway/scratchpad",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "group/hardware",
+        "network",
+        "power-profiles-daemon",
+        "battery"
+    ],
+
+
+    // Left Modules Configuration
+
+    "sway/workspaces": {
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": true,
+        "tooltip-format-activated": "Idle Inhibitor Active",
+        "tooltip-format-deactivated": "Idle Inhibitor Inactive"
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/audio-menu.xml",
+        "menu-actions": {
+            "pavucontrol": "$HOME/.config/waybar/scripts/app_in_scratchpad.sh pavucontrol org.pulseaudio.pavucontrol",
+            "mute-output": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "mute-input": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        }
+    },
+
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+    "sway/mode": {
+        "format": "<span weight=\"bold\">{}</span>"
+    },
+
+
+    // Center Modules Configuration
+
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%A %b %d | %I:%M %p}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode"          : "month",
+            "format": {
+                "months":     "<span color='#43bee0'><b>{}</b></span>",
+                "days":       "<span color='#c7c5c7'><b>{}</b></span>",
+                "weekdays":   "<span color='#e0af68'><b>{}</b></span>",
+                "today":      "<span color='#d3717e'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+
+    // Right Modules Configuration
+
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature"
+        ]
+    },
+
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true,
+        "on-click": "$HOME/.config/waybar/scripts/terminal_in_scratchpad.sh \"htop -s PERCENT_CPU\" htopcpu"
+    },
+    "memory": {
+        "format": "{}% ",
+        "on-click": "$HOME/.config/waybar/scripts/terminal_in_scratchpad.sh \"htop -s PERCENT_MEM\" htopmem"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "on-click": "sh -c networkmanager_dmenu"
+    },
+
+    "network": {
+        "format-wifi": "{essid} {icon}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-icons": ["󰤠", "󰤢", "󰤥", "󰤨"],
+        "on-click-right": "$HOME/.config/waybar/scripts/app_in_scratchpad.sh networkmanager-dmenu network"
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "events": {
+            "on-discharging-warning": "notify-send -u normal '   Low Battery'",
+            "on-discharging-critical": "notify-send -u critical '   Very Low Battery'",
+            "on-charging-100": "notify-send -u normal '   Battery Full!'"
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon} ",
+        "format-plugged": "{capacity}% {icon} ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    }
+}
