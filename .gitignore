@@ -17,3 +17,6 @@
 
 !waybar/
 !waybar/**
+
+!nvim/
+!nvim/**
