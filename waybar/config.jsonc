@@ -118,7 +118,7 @@
         "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""],
-        "on-click": "sh -c networkmanager_dmenu"
+        "on-click": "$HOME/.config/waybar/scripts/terminal_in_scratchpad.sh \"s-tui\" tui"
     },
 
     "network": {
@@ -129,7 +129,7 @@
         "format-disconnected": "",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "format-icons": ["󰤠", "󰤢", "󰤥", "󰤨"],
-        "on-click-right": "$HOME/.config/waybar/scripts/app_in_scratchpad.sh networkmanager-dmenu network"
+        "on-click-right": "networkmanager-dmenu"
     },
 
     "power-profiles-daemon": {
