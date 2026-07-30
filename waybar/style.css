@@ -99,7 +99,6 @@ window#waybar.hidden {
 
 /* Sway Mode Styling */
 
-/* TODO: Blinking on this one? */
 #mode {
     background-color: #d3717e;
     color: #1f2030;

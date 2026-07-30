@@ -12,7 +12,7 @@ set $down j
 set $up k
 set $right l
 set $term ghostty
-set $menu rofi -show drun -show-icons # TODO: Configure this
+set $menu rofi -show drun -show-icons
 set $browser firefox
 set $scripts ~/.config/sway/scripts
 set $background_image /usr/share/backgrounds/aiden-custom/TETONS_02.PNG
@@ -240,6 +240,7 @@ bindsym $mod+r mode "resize"
     bindsym Print exec grim
 
     # TODO: Configure a notification thing for when you turn up volume/brightness/take screenshot
+    # TODO: Rice notification bar, maybe
 
 bar {
     swaybar_command waybar

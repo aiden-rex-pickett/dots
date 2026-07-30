@@ -1,0 +1,37 @@
+# Terminal prompt config
+
+format = '$username$directory$git_branch$character'
+add_newline = false
+
+palette = 'colors'
+
+[palettes.colors]
+blue = '#43bee0'
+red = '#d3717e'
+green = '#9ece6a'
+yellow = '#e0af68'
+text = '#c7c5c7'
+term_bg_dark = '#1f2030'
+term_bg = '#222436'
+term_grey = '#545c7e'
+
+
+[username]
+show_always = true
+style_user = 'bold blue'
+style_root = 'red'
+format = '[$user]($style)[: ](bold text)'
+
+[directory]
+style = 'bold green'
+truncation_length = 3
+format = '[$path ]($style)'
+
+[git_branch]
+symbol = ''
+style = 'yellow'
+format = '[ $symbol $branch ]($style)'
+
+[character]
+success_symbol = '[](green)'
+error_symbol = '[](red)'
