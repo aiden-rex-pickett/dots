@@ -10,7 +10,4 @@ mouse-hide-while-typing = true
 
 window-padding-balance = true
 
-# TODO: Configure starship for prompt
-# Starship for prompt: https://starship.rs/ 
-
 # TODO: Post-rice use dircolors to make sure ls stuff matches colorscheme in terminal
