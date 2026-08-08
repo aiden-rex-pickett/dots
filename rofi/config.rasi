@@ -1,0 +1,96 @@
+configuration {
+    modi: "drun,run,filebrowser";
+    show-icons: true;
+    icon-theme: "Papirus";
+    font: "JetBrainsMono Nerd Font 15";
+    drun-display-format: "{name}";
+    terminal: "ghostty";
+}
+
+@theme "/dev/null"
+
+* {
+    bg-col:      #1f2030ed;
+    bg-alt:      #222436;
+    border-col:  #43bee0;
+    text-col:    #c7c5c7;
+    prompt-col:  #d3717e;
+    select-col:  #43bee066;
+    select-txt:  #d3717e;
+
+    background-color: transparent;
+    text-color:       @text-col;
+}
+
+window {
+    width:            550px;
+    anchor:           center;
+    location:         center;
+    x-offset:         0;
+    y-offset:         0;
+
+    background-color: @bg-col;
+    border:           2px;
+    border-color:     @border-col;
+}
+
+mainbox {
+    padding:          24px;
+    children:         [ inputbar, listview ];
+}
+
+/* Search Bar Styling */
+inputbar {
+    background-color: @bg-alt;
+    padding:          10px 16px;
+    spacing:          10px;
+    children:         [ prompt, entry ];
+    margin:           0px 0px 20px 0px;
+}
+
+prompt {
+    text-color:       @prompt-col;
+}
+
+entry {
+}
+
+/* The Grid Layout */
+listview {
+    columns:          3;          /* 3 Columns wide */
+    lines:            3;          /* 3 Rows high per view */
+    cycle:            false;
+    dynamic:          true;
+    scrollbar:        false;
+    spacing:          16px;
+    fixed-columns:    true;
+    flow:             horizontal;
+}
+
+/* Grid App Box Elements */
+element {
+    orientation:      vertical;   /* Forces icon to sit ABOVE the text */
+    padding:          16px 8px;
+}
+
+element-icon {
+    size:             56px;       /* Nice crisp icon dimensions */
+    cursor:           pointer;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    font:             "JetBrainsMono Nerd Font 10";
+    cursor:           pointer;
+    horizontal-align: 0.5;
+    margin:           8px 0px 0px 0px;
+}
+
+/* Highlight Hover Colors */
+element selected {
+    background-color: @select-col;
+}
+
+element-text selected {
+    text-color:       @select-txt;
+}

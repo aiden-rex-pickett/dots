@@ -15,6 +15,9 @@
 !networkmanager-dmenu/
 !networkmanager-dmenu/**
 
+!rofi/
+!rofi/**
+
 !waybar/
 !waybar/**
 
