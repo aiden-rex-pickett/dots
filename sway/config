@@ -43,6 +43,9 @@ bindswitch {
 # Force check of the lid on startup with /proc
 exec_always bash -c 'if grep -q "closed" /proc/acpi/button/lid/*/state; then swaymsg output eDP-1 disable; else swaymsg output eDP-1 enable; fi'
 
+# Set default brightness to 30%
+exec brightnessctl set 30%  
+
 ### Idle configuration
 
 exec swayidle -w \
