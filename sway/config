@@ -13,7 +13,8 @@ set $up k
 set $right l
 set $term ghostty
 set $menu rofi -show drun -show-icons
-set $network ronema
+set $network $HOME/.local/bin/ronema
+set $bluetooth $HOME/.local/bin/rofi-bluetooth
 set $browser firefox
 set $scripts ~/.config/sway/scripts
 set $background_image /usr/share/backgrounds/aiden-custom/TETONS_02.PNG
@@ -91,13 +92,17 @@ exec swayidle -w \
     # Start a broswer
     bindsym $mod+b exec $browser
 
+    # Open app lanucher
+    bindsym $mod+d exec $menu
+
     # Launch network manager
     bindsym $mod+n exec $network
 
+    # Launch bluetooth manager
+    bindsym $mod+Shift+b exec $bluetooth
+
     # Kill focused window
     bindsym $mod+x kill
-
-    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
