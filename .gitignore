@@ -12,6 +12,9 @@
 !swaync/
 !swaync/**
 
+!bin/
+!bin/**
+
 !ronema/
 !ronema/**
 ronema/icons
