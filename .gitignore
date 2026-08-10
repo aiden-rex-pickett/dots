@@ -20,6 +20,9 @@
 ronema/icons
 ronema/icons/**
 
+!rofi-bluetooth/
+!rofi-bluetooth/**
+
 !rofi/
 !rofi/**
 

@@ -1,0 +1,89 @@
+configuration {
+    show-icons: true;
+    icon-theme: "Papirus";
+    font: "JetBrainsMono Nerd Font 13";
+}
+
+* {
+    bg-col:      #1f2030ed;
+    bg-alt:      #222436;
+    border-col:  #43bee0;
+    text-col:    #c7c5c7;
+    prompt-col:  #d3717e;
+    select-col:  #43bee066;
+    select-txt:  #d3717e;
+
+    background-color: transparent;
+    text-color:       @text-col;
+}
+
+window {
+    width:            600px;
+    anchor:           center;
+    location:         center;
+    x-offset:         0;
+    y-offset:         0;
+
+    background-color: @bg-col;
+    border:           2px;
+    border-color:     @border-col;
+}
+
+mainbox {
+    padding:          20px;
+    children:         [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    padding:          10px 14px;
+    spacing:          10px;
+    children:         [ textbox-prompt-colon, entry ];
+    margin:           0px 0px 14px 0px;
+}
+
+textbox-prompt-colon {
+    text-color:       @prompt-col;
+    expand:           false;
+    str:              "Bluetooth";
+}
+
+listview {
+    columns:          1;
+    lines:            8;
+    cycle:            true;
+    dynamic:          true;
+    fixed-height:     false;
+    scrollbar:        false;
+    spacing:          6px;
+}
+
+element {
+    orientation:      horizontal;
+    padding:          8px 12px;
+}
+
+element-icon {
+    size:             24px;
+    cursor:           pointer;
+}
+
+element-text {
+    font:             "JetBrainsMono Nerd Font 12";
+    cursor:           pointer;
+    horizontal-align: 0.0;
+    vertical-align:   0.5;
+    margin:           0px 0px 0px 10px;
+    markup:           true;
+    expand:           true;
+    tab-stops:        [ 350px, 470px ];
+}
+
+/* Highlight Colors */
+element selected {
+    background-color: @select-col;
+}
+
+element-text selected {
+    text-color:       @select-txt;
+}

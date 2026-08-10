@@ -19,6 +19,8 @@
 # Constants
 divider="---------"
 goback="Back"
+theme_dir="${HOME}/.config/rofi-bluetooth/themes"
+theme="bluetooth.rasi"
 
 # Checks if bluetooth controller is powered on
 power_on() {
@@ -307,7 +309,7 @@ show_menu() {
 # TODO: Make custom theme for this, or just use network one with slight modifications
 #       Also make global var to hold themes directory, should point to ~/.config/rofi-bluetooth/themes
 #       From there use that to get the theme
-rofi_command="rofi -dmenu $* -p"
+rofi_command="rofi -dmenu $* -p -theme ${theme_dir}/${theme}"
 
 case "$1" in
     --status)
