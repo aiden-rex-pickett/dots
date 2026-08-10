@@ -5,8 +5,6 @@ configuration {
     display-dmenu: "Network:";
 }
 
-@theme "/dev/null"
-
 * {
     bg-col:      #1f2030ed;
     bg-alt:      #222436;
@@ -21,7 +19,7 @@ configuration {
 }
 
 window {
-    width:            450px;
+    width:            600px;
     anchor:           center;
     location:         center;
     x-offset:         0;

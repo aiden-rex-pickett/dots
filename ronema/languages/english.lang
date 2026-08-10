@@ -1,5 +1,5 @@
-PASSWORD_ENTER="Enter password, empty to use stored password"
-PROMPT_PASSWORD="Enter Password:"
+PASSWORD_ENTER="if connection is stored,hit enter/esc."
+PROMPT_PASSWORD="Enter_Password"
 PROMPT_SSID="Enter_SSID"
 
 SELECTION_DISCONECT="Disconnect"
