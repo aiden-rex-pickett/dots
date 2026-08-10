@@ -12,8 +12,10 @@
 !swaync/
 !swaync/**
 
-!networkmanager-dmenu/
-!networkmanager-dmenu/**
+!ronema/
+!ronema/**
+ronema/icons
+ronema/icons/**
 
 !rofi/
 !rofi/**

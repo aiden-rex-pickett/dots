@@ -130,7 +130,7 @@
         "format-disabled": "󰖪",
         "format-alt": "{ifname}: {ipaddr}/{cidr} | {signalStrength}%",
         "format-icons": ["󰤠", "󰤢", "󰤥", "󰤨"],
-        "on-click-right": "networkmanager-dmenu"
+        "on-click-right": "ronema"
     },
 
     "power-profiles-daemon": {
