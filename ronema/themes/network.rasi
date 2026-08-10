@@ -19,7 +19,6 @@ configuration {
 }
 
 window {
-    width:            600px;
     anchor:           center;
     location:         center;
     x-offset:         0;
@@ -35,35 +34,34 @@ mainbox {
     children:         [ inputbar, listview ];
 }
 
-/* Search / Prompt Bar */
 inputbar {
     background-color: @bg-alt;
     padding:          10px 14px;
     spacing:          10px;
-    children:         [ prompt, entry ];
+    children:         [ textbox-prompt-colon, entry ];
     margin:           0px 0px 14px 0px;
 }
 
-prompt {
+textbox-prompt-colon {
     text-color:       @prompt-col;
+    expand:           false;
+    str:              "Network:";
 }
 
 entry {
     placeholder:      "";
 }
 
-/* Single Column Layout (5 lines) */
 listview {
     columns:          1;
     lines:            5;
     cycle:            false;
     dynamic:          true;
+    fixed-height:     true;
     scrollbar:        false;
     spacing:          6px;
-    fixed-height:     true;
 }
 
-/* Horizontal List Element */
 element {
     orientation:      horizontal;
     padding:          8px 12px;
@@ -77,8 +75,12 @@ element-icon {
 element-text {
     font:             "JetBrainsMono Nerd Font 12";
     cursor:           pointer;
+    horizontal-align: 0.0;
     vertical-align:   0.5;
     margin:           0px 0px 0px 10px;
+    markup:           true;
+    expand:           true;
+    tab-stops:        [ 350px, 470px ];
 }
 
 /* Highlight Colors */
