@@ -304,6 +304,9 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
+# TODO: Make custom theme for this, or just use network one with slight modifications
+#       Also make global var to hold themes directory, should point to ~/.config/rofi-bluetooth/themes
+#       From there use that to get the theme
 rofi_command="rofi -dmenu $* -p"
 
 case "$1" in
