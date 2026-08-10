@@ -192,7 +192,7 @@ exec swayidle -w \
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym $mod+p focus parent
 #
 # Scratchpad:
 #
@@ -235,6 +235,51 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+    # Special utility mode for controlling audio, brightness, backlight
+    bindsym $mod+u mode "Audio Output (j/k to change, m to mute)"
+
+    mode "Audio Output (j/k to change, m to mute)" {
+        bindsym k exec sh -c 'v=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ +1%'
+        bindsym Shift+k exec sh -c 'v=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%'
+        bindsym j exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+        bindsym Shift+j exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+        bindsym m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+        bindsym h mode "Backlight (j/k to change)"
+        bindsym l mode "Audio Input (j/k to change, m to mute)"
+        bindsym Escape mode "default"
+    }
+
+    mode "Audio Input (j/k to change, m to mute)" {
+        bindsym k exec sh -c 'v=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-source-volume @DEFAULT_SOURCE@ +1%'
+        bindsym Shift+k exec sh -c 'v=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-source-volume @DEFAULT_SOURCE@ +5%'
+        bindsym j exec pactl set-source-volume @DEFAULT_SOURCE@ -1%
+        bindsym Shift+j exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
+        bindsym m exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+        bindsym h mode "Audio Output (j/k to change, m to mute)"
+        bindsym l mode "Brightness (j/k to change)"
+        bindsym Escape mode "default"
+    }
+
+    mode "Brightness (j/k to change)" {
+        bindsym k exec exec brightnessctl set 5%+
+        bindsym j exec exec brightnessctl set 5%-
+
+        bindsym h mode "Audio Input (j/k to change, m to mute)"
+        bindsym l mode "Backlight (j/k to change)"
+        bindsym Escape mode "default"
+    }
+
+    mode "Backlight (j/k to change)" {
+        bindsym k exec exec brightnessctl -d "*kbd_backlight*" set 5%+
+        bindsym j exec exec brightnessctl -d "*kbd_backlight*" set 5%-
+
+        bindsym h mode "Brightness (j/k to change)"
+        bindsym l mode "Audio Output (j/k to change, m to mute)"
+        bindsym Escape mode "default"
+    }
 
     # Special key to suspend/power off
     bindsym --locked XF86PowerOff exec systemctl suspend
