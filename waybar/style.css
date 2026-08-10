@@ -165,6 +165,18 @@ window#waybar.hidden {
     color: #9ece6a;
 }
 
+/* Bluetooth Styling */
+
+#bluetooth {
+    background-color: #1f2030;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+#bluetooth:hover {
+    background-color: #545c7e;
+}
+
 /* Network Styling */
 
 #network {
@@ -184,8 +196,13 @@ window#waybar.hidden {
 #pulseaudio {
     color: #c7c5c7;
     background-color: #1f2030;
+    transition-property: background-color;
+    transition-duration: 0.3s;
 }
 
+#pulseaudio:hover {
+    background-color: #545c7e;
+}
 
 /* CPU, Memory, Temperature Styling */
 

@@ -16,6 +16,7 @@
     ],
     "modules-right": [
         "group/hardware",
+        "bluetooth",
         "network",
         "power-profiles-daemon",
         "battery"
@@ -121,6 +122,19 @@
         "on-click": "$HOME/.config/waybar/scripts/terminal_in_scratchpad.sh \"s-tui\" tui"
     },
 
+    "bluetooth": {
+        "format": " {status}",
+        "format-alt": "{controller_alias}\t{controller_address}",
+        "format-off": "",
+        "format-disabled": "",
+        "format-connected": " {num_connections} connected",
+        "format-connected-battery": " connected {device_battery_percentage}% ",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click-right": "$HOME/.local/bin/rofi-bluetooth"
+    },
+
     "network": {
         "format-wifi": "{essid} {icon}",
         "format-ethernet": "{ipaddr}/{cidr} ",
@@ -130,7 +144,7 @@
         "format-disabled": "󰖪",
         "format-alt": "{ifname}: {ipaddr}/{cidr} | {signalStrength}%",
         "format-icons": ["󰤠", "󰤢", "󰤥", "󰤨"],
-        "on-click-right": "ronema"
+        "on-click-right": "$HOME/.local/bin/ronema"
     },
 
     "power-profiles-daemon": {
