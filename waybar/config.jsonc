@@ -8,6 +8,7 @@
         "sway/workspaces",
         "idle_inhibitor",
         "pulseaudio",
+        "bluetooth",
         "sway/scratchpad",
         "sway/mode"
     ],
@@ -16,7 +17,6 @@
     ],
     "modules-right": [
         "group/hardware",
-        "bluetooth",
         "network",
         "power-profiles-daemon",
         "battery"

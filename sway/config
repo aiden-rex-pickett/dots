@@ -237,47 +237,47 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
     # Special utility mode for controlling audio, brightness, backlight
-    bindsym $mod+u mode "Audio Output (j/k to change, m to mute)"
+    bindsym $mod+u mode "Audio Output"
 
-    mode "Audio Output (j/k to change, m to mute)" {
+    mode "Audio Output" {
         bindsym k exec sh -c 'v=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ +1%'
         bindsym Shift+k exec sh -c 'v=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%'
         bindsym j exec pactl set-sink-volume @DEFAULT_SINK@ -1%
         bindsym Shift+j exec pactl set-sink-volume @DEFAULT_SINK@ -5%
         bindsym m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-        bindsym h mode "Backlight (j/k to change)"
-        bindsym l mode "Audio Input (j/k to change, m to mute)"
+        bindsym h mode "Backlight"
+        bindsym l mode "Audio Input"
         bindsym Escape mode "default"
     }
 
-    mode "Audio Input (j/k to change, m to mute)" {
+    mode "Audio Input" {
         bindsym k exec sh -c 'v=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-source-volume @DEFAULT_SOURCE@ +1%'
         bindsym Shift+k exec sh -c 'v=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -o "[0-9]*%" | head -n1 | tr -d "%"); [ "$v" -lt 150 ] && pactl set-source-volume @DEFAULT_SOURCE@ +5%'
         bindsym j exec pactl set-source-volume @DEFAULT_SOURCE@ -1%
         bindsym Shift+j exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
         bindsym m exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-        bindsym h mode "Audio Output (j/k to change, m to mute)"
-        bindsym l mode "Brightness (j/k to change)"
+        bindsym h mode "Audio Output"
+        bindsym l mode "Brightness"
         bindsym Escape mode "default"
     }
 
-    mode "Brightness (j/k to change)" {
+    mode "Brightness" {
         bindsym k exec exec brightnessctl set 5%+
         bindsym j exec exec brightnessctl set 5%-
 
-        bindsym h mode "Audio Input (j/k to change, m to mute)"
-        bindsym l mode "Backlight (j/k to change)"
+        bindsym h mode "Audio Input"
+        bindsym l mode "Backlight"
         bindsym Escape mode "default"
     }
 
-    mode "Backlight (j/k to change)" {
+    mode "Backlight" {
         bindsym k exec exec brightnessctl -d "*kbd_backlight*" set 5%+
         bindsym j exec exec brightnessctl -d "*kbd_backlight*" set 5%-
 
-        bindsym h mode "Brightness (j/k to change)"
-        bindsym l mode "Audio Output (j/k to change, m to mute)"
+        bindsym h mode "Brightness"
+        bindsym l mode "Audio Output"
         bindsym Escape mode "default"
     }
 
@@ -296,7 +296,6 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
-    # TODO: Configure a notification thing for when you turn up volume/brightness/take screenshot
     # TODO: Rice notification bar, maybe
 
 bar {
