@@ -249,6 +249,7 @@ bindsym $mod+r mode "resize"
         bindsym h mode "Backlight"
         bindsym l mode "Audio Input"
         bindsym Escape mode "default"
+        bindsym Return mode "default"
     }
 
     mode "Audio Input" {
@@ -261,6 +262,7 @@ bindsym $mod+r mode "resize"
         bindsym h mode "Audio Output"
         bindsym l mode "Brightness"
         bindsym Escape mode "default"
+        bindsym Return mode "default"
     }
 
     mode "Brightness" {
@@ -270,6 +272,7 @@ bindsym $mod+r mode "resize"
         bindsym h mode "Audio Input"
         bindsym l mode "Backlight"
         bindsym Escape mode "default"
+        bindsym Return mode "default"
     }
 
     mode "Backlight" {
@@ -279,6 +282,7 @@ bindsym $mod+r mode "resize"
         bindsym h mode "Brightness"
         bindsym l mode "Audio Output"
         bindsym Escape mode "default"
+        bindsym Return mode "default"
     }
 
     # Special key to suspend/power off
