@@ -53,9 +53,9 @@ exec brightnessctl set 30%
 exec swayidle -w \
          timeout 300 "swaylock -f -i '$background_image'" \
          timeout 600 "swaymsg 'output * dpms off'" resume "swaymsg 'output * dpms on'" \
-         timeout 900 "systemctl poweroff" \
+         timeout 900 "systemctl suspend" \
          before-sleep "swaylock -f -i '$background_image'" \
-         after-resume "swaymsg 'output * dpms on'" \
+         after-resume "swaymsg 'output * dpms on'" 
 
 # Locks screen after 5 minutes, turns off display after 5 more, then suspends after 5 more
 
