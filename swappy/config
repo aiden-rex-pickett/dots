@@ -9,8 +9,6 @@ early_exit=true
 # Drawing defaults
 paint_mode=brush
 line_size=4
-custom_color=#000000
 
 # Text defaults
 text_size=20
-text_font_family=JetBrainsMono Nerd Font
