@@ -298,8 +298,9 @@ bindsym $mod+r mode "resize"
     # Logout
     bindsym $mod+Shift+e exec swaymsg exit
 
-    # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    # Special key + keybinding to take a screenshot with grim
+    bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
 
     # TODO: Rice notification bar, maybe
 

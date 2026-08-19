@@ -33,3 +33,6 @@ ronema/icons/**
 !nvim/**
 
 !starship.toml
+
+!swappy/
+!swappy/**
