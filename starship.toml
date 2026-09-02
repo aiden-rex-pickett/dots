@@ -15,7 +15,6 @@ term_bg_dark = '#1f2030'
 term_bg = '#222436'
 term_grey = '#545c7e'
 
-
 [username]
 show_always = true
 style_user = 'bold blue'
