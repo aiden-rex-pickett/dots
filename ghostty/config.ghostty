@@ -3,7 +3,7 @@ background = #1f2030
 foreground = #c7c5c7
 
 font-family = "JetBrainsMono Nerd Font"
-font-size = 15
+font-size = 13
 font-feature = +calt
 
 mouse-hide-while-typing = true
