@@ -21,6 +21,10 @@ set $background_image /usr/share/backgrounds/aiden-custom/TETONS_02.PNG
 
 ### Output configuration
 
+# Set Wayland/Sway variables for portals (fixes Zoom screen sharing)
+exec systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_TYPE WAYLAND_DISPLAY
+exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE=wayland WAYLAND_DISPLAY
+
 # Wallpaper
 output * bg $background_image fill
 output * max_render_time 3
