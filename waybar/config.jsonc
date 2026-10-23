@@ -80,6 +80,7 @@
     // Center Modules Configuration
 
     "clock": {
+        "timezone": "America/Denver",
         "format": "{:%I:%M %p}",
         "format-alt": "{:%A %b %d | %I:%M %p}",
         "tooltip-format": "<tt>{calendar}</tt>",
